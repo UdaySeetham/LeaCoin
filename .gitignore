@@ -1,0 +1,3 @@
+do-make-leacoin.sh
+leacoin-qt
+qrc_bitcoin.cpp
