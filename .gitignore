@@ -1,3 +1,40 @@
-do-make-leacoin.sh
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+do-clean-linux.sh
+do-clean-win32.sh
+do-make-linux.sh
+do-make-static.sh
+do-make-win32.sh
+release/*
 leacoin-qt
-qrc_bitcoin.cpp
+src/leacoind
+
+# NetBeans project directory
+nbproject
+nbproject/*

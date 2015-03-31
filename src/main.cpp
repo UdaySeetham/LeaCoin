@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2013 LeaCoin developers
+// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2015 LeaCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1246,7 +1246,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 }
 
 static const int64 nStartSubsidy = 200 * COIN;
-static const int64 nMinSubsidy = 2 * COIN;
+static const int64 nMinSubsidy = 20 * COIN;
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
@@ -1254,7 +1254,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
     if (nHeight == 1)
     {
-        nSubsidy = 10518980 * COIN;
+        nSubsidy = 10000000 * COIN;
     }
     if (nHeight > 5259490) // Number of blocks after 10 years
     {

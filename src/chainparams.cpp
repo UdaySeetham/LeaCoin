@@ -66,7 +66,7 @@ public:
         assert(hashGenesisBlock == uint256("0x00000a33e2728123ae58837d86248e19c3530a603aa9b59228fc9954ef2c93e0"));
         assert(genesis.hashMerkleRoot == uint256("0x448cd8630d0904ac9bb61d6fb51a0c3b25b707913b3f5a91af4e2220934690da"));
 
-        vSeeds.push_back(CDNSSeedData("n1.mpool.me", "n1.mpool.me"));
+        vSeeds.push_back(CDNSSeedData("leacoin.org", "dnsseed.leacoin.org"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = 48;

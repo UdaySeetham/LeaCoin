@@ -1,7 +1,7 @@
 Bitcoin 0.8.2 BETA 
 ====================
 
-Copyright (c) 2009-2013 Bitcoin Developers
+Copyright (c) 2009-2014 Bitcoin Developers
 
 Distributed under the [MIT/X11 software license](http://www.opensource.org/licenses/mit-license.php).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](http://www.openssl.org/). This product includes

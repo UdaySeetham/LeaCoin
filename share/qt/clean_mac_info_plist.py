@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Jonas Schnelli, 2013
+# Jonas Schnelli, 2014
 # make sure the Bitcoin-Qt.app contains the right plist (including the right version)
 # fix made because of serval bugs in Qt mac deployment (https://bugreports.qt-project.org/browse/QTBUG-21267)
 

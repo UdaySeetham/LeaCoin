@@ -21,15 +21,23 @@ USE_UPNP:=-
 USE_IPV6:=1
 
 DEPSDIR?=/usr/local
-BOOST_SUFFIX?=-mgw46-mt-s-1_52
+BOOST_SUFFIX?=-mt-s
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
- -I"$(DEPSDIR)/include"
+ -I"$(DEPSDIR)/include" \
+ -I"$(OPENSSL_INCLUDE_PATH)" \
+ -I"$(BDB_INCLUDE_PATH)" \
+ -I"$(BOOST_INCLUDE_PATH)" \
+ -I"$(MINIUPNPC_INCLUDE_PATH)"
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
- -L"$(DEPSDIR)/lib"
+ -L"$(DEPSDIR)/lib" \
+ -L"$(OPENSSL_LIB_PATH)" \
+ -L"$(BDB_LIB_PATH)" \
+ -L"$(BOOST_LIB_PATH)" \
+ -L"$(MINIUPNPC_LIB_PATH)"
 
 LIBS= \
  -l leveldb \
@@ -45,7 +53,7 @@ LIBS= \
 
 DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
 DEBUGFLAGS=-g
-CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
+CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS) -static
 # enable: ASLR, DEP and large address aware
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
 
@@ -105,7 +113,7 @@ OBJS= \
     obj/chainparams.o
 
 
-all: leacoind.exe
+all: LeaCoind.exe
 
 test check: test_leacoin.exe FORCE
 	test_leacoin.exe
@@ -122,7 +130,7 @@ leveldb/libleveldb.a:
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-leacoind.exe: $(OBJS:obj/%=obj/%)
+LeaCoind.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
@@ -134,7 +142,7 @@ test_leacoin.exe: $(TESTOBJS) $(filter-out obj/init.o obj/leacoind.o,$(OBJS:obj/
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework$(BOOST_SUFFIX) $(LIBS)
 
 clean:
-	rm -f leacoind.exe test_leacoin.exe
+	rm -f LeaCoind.exe test_leacoin.exe
 	rm -f obj/*
 	rm -f obj-test/*
 	cd leveldb && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
