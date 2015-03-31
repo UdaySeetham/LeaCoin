@@ -18,7 +18,7 @@
 - P2P Port: 18123
 - RPC Port: 18124
 
-- leacoin.conf:
+leacoin.conf:
 
 	rpcuser=YOUR_RPC_USER
 	rpcpassword=YOUR_RPC_PASSWORD
