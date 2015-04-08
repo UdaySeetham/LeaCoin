@@ -2,15 +2,15 @@
 
 - Algorithm: SHA256
 - 2,000,000,000 total coins
-- 1,051,898,000 Coins will be mined in 10 years
+- 1,051,898,000 Coins will be mined in 5 years
 - Premine: 0.5%
-- Block target: 1 minute
+- Block target: 30 seconds
 - Difficulty change target: 2 blocks
 - Reward Type: PoW
 - Block reward:
-  -- 200 LEA/block for the first 10 years
-  --  20 LEA/block after 5,259,490 blocks (~10 years),
-    until the total number of coins reaches 2 billion - in approx. 90 years :-)
+  -- 200 LEA/block for the first 5 years
+  --  20 LEA/block after 5,259,490 blocks (~5 years),
+    until the total number of coins reaches 2 billion - in approx. 45 years :-)
 
 - Mined block confirmations: 120
 - Transaction confirmations: 6
