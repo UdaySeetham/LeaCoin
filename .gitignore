@@ -31,7 +31,9 @@ do-clean-win32.sh
 do-make-linux.sh
 do-make-static.sh
 do-make-win32.sh
-release/*
+/build/
+/debug/
+/release/
 leacoin-qt
 src/leacoind
 
