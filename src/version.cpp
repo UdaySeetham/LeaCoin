@@ -11,7 +11,7 @@
 const std::string CLIENT_NAME("LeaCoin");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "-20150330"
+#define CLIENT_VERSION_SUFFIX   "-20161214"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.

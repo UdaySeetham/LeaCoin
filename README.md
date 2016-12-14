@@ -1,4 +1,4 @@
-*** LeaCoin (LEA) ***
+# LeaCoin (LEA)
 
 - Algorithm: SHA256
 - 2,000,000,000 total coins
@@ -8,17 +8,14 @@
 - Difficulty change target: 2 blocks
 - Reward Type: PoW
 - Block reward:
-  -- 200 LEA/block for the first 5 years
-  --  20 LEA/block after 5,259,490 blocks (~5 years),
-    until the total number of coins reaches 2 billion - in approx. 45 years :-)
-
+    - 200 LEA/block for the first 5 years
+    - 20 LEA/block after 5,259,490 blocks (~5 years), until the total number of coins reaches 2 billion - in approx. 45 years :-)
 - Mined block confirmations: 120
 - Transaction confirmations: 6
-
 - P2P Port: 18123
 - RPC Port: 18124
 
-leacoin.conf:
+### leacoin.conf:
 
 	rpcuser=YOUR_RPC_USER
 	rpcpassword=YOUR_RPC_PASSWORD
