@@ -34,7 +34,6 @@ do-make-win32.sh
 /build/
 /debug/
 /release/
-/zzz/
 leacoin-qt
 src/leacoind
 
