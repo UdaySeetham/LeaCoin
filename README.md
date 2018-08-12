@@ -25,5 +25,5 @@
 	listen=1
 
 - Mining pool: https://www.mpool.me/lea/
-- Block Crawler: https://www.mpool.me/bc/lea/
+- Block Explorer: https://explorer.leacoin.org
 - Paper Wallet Generator: https://www.mpool.me/wg/lea/
