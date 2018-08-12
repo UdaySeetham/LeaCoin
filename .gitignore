@@ -38,4 +38,4 @@ nbproject
 nbproject/*
 
 # VS Code
-.vscode
+/.vscode/
