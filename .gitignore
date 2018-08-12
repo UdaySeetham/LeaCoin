@@ -26,11 +26,7 @@
 *.exe
 *.out
 *.app
-do-clean-linux.sh
-do-clean-win32.sh
-do-make-linux.sh
-do-make-static.sh
-do-make-win32.sh
+do-*.sh
 /build/
 /debug/
 /release/
@@ -40,3 +36,6 @@ src/leacoind
 # NetBeans project directory
 nbproject
 nbproject/*
+
+# VS Code
+/.vscode/
