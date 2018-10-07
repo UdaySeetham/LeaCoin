@@ -701,7 +701,7 @@ int CMerkleTx::SetMerkleBranch(const CBlock* pblock)
 
 
 
-bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fCheckDuplicateInputs)
+bool CheckTransaction(const CTransaction& tx, CValidationState &state)
 {
     // Basic checks that don't depend on any context
     if (tx.vin.empty())
@@ -724,18 +724,16 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state, bool fChe
         if (!MoneyRange(nValueOut))
             return state.DoS(100, error("CTransaction::CheckTransaction() : txout total out of range"));
     }
-    // Check for duplicate inputs - note that this check is slow so we skip it in CheckBlock
-    if (fCheckDuplicateInputs) {
-        set<COutPoint> vInOutPoints;
-        for (const auto& txin : tx.vin)
-        {
-            if (vInOutPoints.count(txin.prevout))
-                return state.DoS(100, false, REJECT_INVALID, "bad-txns-inputs-duplicate");
-            vInOutPoints.insert(txin.prevout);
-        }   
-    
+
+    // Check for duplicate inputs
+    set<COutPoint> vInOutPoints;
+    BOOST_FOREACH(const CTxIn& txin, tx.vin)
+    {
+        if (vInOutPoints.count(txin.prevout))
+            return state.DoS(100, error("CTransaction::CheckTransaction() : duplicate inputs"));
+        vInOutPoints.insert(txin.prevout);
     }
-    
+
     if (tx.IsCoinBase())
     {
         if (tx.vin[0].scriptSig.size() < 2 || tx.vin[0].scriptSig.size() > 100)
@@ -2267,7 +2265,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 
     // Check transactions
     BOOST_FOREACH(const CTransaction& tx, block.vtx)
-        if (!CheckTransaction(tx, state, false))
+        if (!CheckTransaction(tx, state))
             return error("CheckBlock() : CheckTransaction failed");
 
     // Build the merkle tree already. We need it anyway later, and it makes the
