@@ -29,5 +29,6 @@
 - Paper Wallet Generator: https://www.mpool.me/wg/lea/
 
 ### Authorized contact info:
+ - admin@leacoin.org
  - roman.pastushenko.1997@gmail.com
  - ilhasmusic@gmail.com
